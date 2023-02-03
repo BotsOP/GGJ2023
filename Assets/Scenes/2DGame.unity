@@ -354,9 +354,9 @@ MonoBehaviour:
   previousTime: 0
   currentTime: 0
   timeBetweenPresses: 0
-  speedMultiplier: 50
+  speedMultiplier: 60
   playerRigidbody: {fileID: 0}
-  maxTime: 0.05
+  maxTime: 0.1
   maxDistance: 5
   distance: 0
   direction: {x: 0, y: 0, z: 0}
@@ -369,7 +369,7 @@ Rigidbody:
   m_GameObject: {fileID: 1683800092}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1.6
+  m_Drag: 1.8
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
