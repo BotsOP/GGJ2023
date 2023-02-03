@@ -358,7 +358,7 @@ MonoBehaviour:
   maxTime: 0.1
   maxDistance: 5
   speedMultiplier: 60
-  upSpeedMultiplier: 1.25
+  upSpeedMultiplier: 1.4
   distance: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!54 &1683800098
