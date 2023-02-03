@@ -10,12 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public float previousTime;
     public float currentTime;
     public float timeBetweenPresses;
-    public float speedMultiplier;
 
     public Rigidbody playerRigidbody;
 
     public float maxTime;
     public float maxDistance;
+    public float speedMultiplier = 60;
+    public float upSpeedMultiplier;
     public float distance;
     public Vector3 direction;
 
@@ -351,7 +352,7 @@ public class PlayerMovement : MonoBehaviour
     void CalcVelocity()
     {
         distance = Vector2.Distance(previousPosition,currentPosition);
-        direction = new Vector3(currentPosition.y - previousPosition.y, previousPosition.x - currentPosition.x, 0f);
+        direction = new Vector3(currentPosition.y - previousPosition.y, (previousPosition.x - currentPosition.x)*upSpeedMultiplier, 0f);
         if(distance <= maxDistance)
         {
             playerRigidbody.AddForce(direction * speedMultiplier);

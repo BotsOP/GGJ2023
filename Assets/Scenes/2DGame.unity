@@ -354,10 +354,11 @@ MonoBehaviour:
   previousTime: 0
   currentTime: 0
   timeBetweenPresses: 0
-  speedMultiplier: 60
   playerRigidbody: {fileID: 0}
   maxTime: 0.1
   maxDistance: 5
+  speedMultiplier: 60
+  upSpeedMultiplier: 1.25
   distance: 0
   direction: {x: 0, y: 0, z: 0}
 --- !u!54 &1683800098
