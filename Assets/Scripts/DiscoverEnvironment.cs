@@ -9,11 +9,19 @@ public class DiscoverEnvironment : MonoBehaviour
     public VineManager vineManager;
     public float stepSize;
     public float stepDelay;
+    public float minDelay;
+    public float maxDelay;
+    public float minDistance;
+    public float maxDistance;
     public Transform root;
     public Transform target;
+    
     private OrientedPoint orientedPoint;
     private float previousTime;
-    
+    private Vector3 lastPos;
+    private Vector3 secondLastPos;
+    private Vector3 thirdLastPos;
+
     private readonly Vector3[] dirs = 
     {
         Vector3.up, 
@@ -31,32 +39,45 @@ public class DiscoverEnvironment : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // OrientedPoint op = new OrientedPoint(transform1.position, Quaternion.Euler(angles));
-        //
-        // op.rotation = Quaternion.LookRotation(transform2.position - transform1.position);
-        // op.rotation = Quaternion.FromToRotation(op.rotation * Vector3.up, transform1.up) * op.rotation;
-
-        Gizmos.DrawSphere(orientedPoint.position, 0.1f);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(orientedPoint.position, orientedPoint.rotation * Vector3.forward + orientedPoint.position);
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(orientedPoint.position, orientedPoint.rotation * Vector3.right + orientedPoint.position);
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(orientedPoint.position, orientedPoint.rotation * Vector3.up + orientedPoint.position);
+        // Gizmos.DrawSphere(orientedPoint.position, 0.1f);
+        // Gizmos.color = Color.blue;
+        // Gizmos.DrawLine(orientedPoint.position, orientedPoint.rotation * Vector3.forward + orientedPoint.position);
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawLine(orientedPoint.position, orientedPoint.rotation * Vector3.right + orientedPoint.position);
+        // Gizmos.color = Color.green;
+        // Gizmos.DrawLine(orientedPoint.position, orientedPoint.rotation * Vector3.up + orientedPoint.position);
     }
 
     private void FixedUpdate()
     {
-        if (Time.time > previousTime + stepDelay)
+        if (vineManager.transforms.Count > 2)
+        {
+            secondLastPos = vineManager.transforms[^2].position;
+            lastPos = vineManager.transforms[^1].position;
+        }
+        
+        Vector3 headVinePos = vineManager.transforms[^1].position;
+        float currentStepDelay = Vector3.Distance(headVinePos, target.position);
+        currentStepDelay = VineManager.Remap(currentStepDelay, minDistance, maxDistance, maxDelay, minDelay);
+        currentStepDelay = Mathf.Clamp(currentStepDelay, minDelay, maxDelay);
+        
+        if (Time.time > previousTime + currentStepDelay)
         {
             previousTime = Time.time;
             orientedPoint = CalculateNextPoint(orientedPoint);
-            Transform tempTransform = new GameObject().transform;
-            tempTransform.position = orientedPoint.position;
-            tempTransform.rotation = orientedPoint.rotation;
-            tempTransform.parent = transform;
-            vineManager.transforms.Add(tempTransform);
+            Debug.Log($"{orientedPoint.position} {lastPos} {secondLastPos} {thirdLastPos}");
+            if (!(orientedPoint.position == lastPos || orientedPoint.position == secondLastPos))
+            {
+                Transform tempTransform = new GameObject().transform;
+                tempTransform.position = orientedPoint.position;
+                tempTransform.rotation = orientedPoint.rotation;
+                tempTransform.parent = transform;
+            
+                vineManager.transforms.Add(tempTransform);
+            }
         }
+
+        
     }
 
     private OrientedPoint CalculateNextPoint(OrientedPoint origin)
@@ -78,7 +99,7 @@ public class DiscoverEnvironment : MonoBehaviour
                 origin.rotation = Quaternion.LookRotation(hit.point - originalPos, hit.normal);
                 break;
             }
-            Debug.DrawRay(origin.position, dir, Color.yellow);
+            //Debug.DrawRay(origin.position, dir, Color.yellow);
             origin.position += dir;
         }
         return origin;

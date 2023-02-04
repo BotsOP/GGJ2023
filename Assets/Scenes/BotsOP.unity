@@ -328,7 +328,6 @@ GameObject:
   - component: {fileID: 557095064}
   - component: {fileID: 557095063}
   - component: {fileID: 557095062}
-  - component: {fileID: 557095061}
   m_Layer: 0
   m_Name: ROOT
   m_TagString: Untagged
@@ -336,19 +335,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &557095061
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557095060}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &557095062
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -683,7 +669,6 @@ MonoBehaviour:
   vineSize: 0.1
   transforms:
   - {fileID: 557095064}
-  vineGrowMaterial: {fileID: 2100000, guid: 307b7185332b65e408803180d4cde09a, type: 2}
 --- !u!4 &830527437
 Transform:
   m_ObjectHideFlags: 0
@@ -714,6 +699,10 @@ MonoBehaviour:
   vineManager: {fileID: 830527436}
   stepSize: 0.2
   stepDelay: 0.1
+  minDelay: 0
+  maxDelay: 0.1
+  minDistance: 1
+  maxDistance: 10
   root: {fileID: 557095064}
   target: {fileID: 1505928906}
 --- !u!1 &933768659
@@ -1407,7 +1396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505928902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.35, y: 0.217, z: -0.96}
+  m_LocalPosition: {x: -3.9, y: 0.217, z: -2.32}
   m_LocalScale: {x: 0.17799, y: 0.17799, z: 0.17799}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1577,6 +1566,10 @@ MonoBehaviour:
   vineManager: {fileID: 0}
   stepSize: 0.2
   stepDelay: 0
+  minDelay: 0
+  maxDelay: 0
+  minDistance: 0
+  maxDistance: 0
   root: {fileID: 0}
   target: {fileID: 0}
 --- !u!4 &1702406844

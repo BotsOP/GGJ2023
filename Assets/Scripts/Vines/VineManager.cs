@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -11,7 +12,6 @@ public class VineManager : MonoBehaviour
     public int roundSegments;
     public float vineSize;
     public List<Transform> transforms;
-    public Material vineGrowMaterial;
 
     private Mesh vines;
     private int kernelID;
@@ -29,6 +29,8 @@ public class VineManager : MonoBehaviour
     {
         pathPoints = new ComputeBuffer(transforms.Count, sizeof(float) * 16, ComputeBufferType.Structured);
         CreateMesh();
+        transform.position = Vector3.zero;
+        transform.rotation = quaternion.identity;
     }
 
     private void OnDisable()
@@ -153,7 +155,6 @@ public class VineManager : MonoBehaviour
             gpuIndice?.Dispose();
             gpuIndice = null;
             gpuIndice = vines.GetIndexBuffer();
-            vineGrowMaterial.SetFloat("_VineSegments", vineSegments);
             CalculateVertexPositions();
             CalculateIndices();
             cachedVineSegmets = vineSegments;
@@ -183,8 +184,12 @@ public class VineManager : MonoBehaviour
         return matrices;
     }
     
-    
+    public static float Remap (float value, float from1, float to1, float from2, float to2) {
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+    }
 }
+
+
 
 struct vertex
 {

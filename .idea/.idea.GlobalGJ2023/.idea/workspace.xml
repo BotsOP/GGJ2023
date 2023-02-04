@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9cb9b58-8866-4d04-9ebf-3c29a2ef5665" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    <list default="true" id="c9cb9b58-8866-4d04-9ebf-3c29a2ef5665" name="Changes" comment="added 3d vines controller">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalGJ2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalGJ2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BotsOP.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BotsOP.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DiscoverEnvironment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DiscoverEnvironment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vines/VineCalculator.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vines/VineCalculator.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Shader Graphs_Grow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Shader Graphs_Grow.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,13 +130,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs</url>
-          <line>123</line>
+          <line>125</line>
           <properties documentPath="C:\UnityProjects\GlobalGJ2023\Assets\Scripts\Vines\VineManager.cs" initialLine="123" containingFunctionPresentation="method 'CalculateVertexPositions'">
             <startOffsets>
-              <option value="4399" />
+              <option value="4479" />
             </startOffsets>
             <endOffsets>
-              <option value="4400" />
+              <option value="4480" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
@@ -140,6 +145,7 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Type#vertex" memberName="normal" />
         <PinnedItemInfo parentTag="Type#vertex" memberName="uv" />
         <PinnedItemInfo parentTag="Type#UnityEngine.Transform" memberName="localPosition" />
       </pinned-members>
