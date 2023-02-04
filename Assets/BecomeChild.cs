@@ -11,9 +11,7 @@ public class BecomeChild : MonoBehaviour
     [SerializeField] private Animator KusjeKriebel;
     public void ActivateChildMode() 
     {
-        Debug.Log("2");
         KusjeKriebel.enabled = false;
-        transform.parent = parent;
         SeanEenSoordVan.Invoke();
     }
 
