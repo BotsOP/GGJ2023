@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 702298750}
   - component: {fileID: 702298752}
   - component: {fileID: 702298753}
+  - component: {fileID: 702298754}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1087,7 +1088,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 702298754}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   KusjeKriebel: {fileID: 702298750}
+--- !u!114 &702298754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702298746}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e92248692362c543870f218cfc44293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vineManager: {fileID: 1911369978}
+  smoothSpeed: 0.1
 --- !u!1 &702431403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2754721867335051163, guid: fc04ae4f808aa254985f8d6b39bf1623, type: 3}
@@ -2202,6 +2229,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2132684363365991874}
+    - target: {fileID: 4506497455663066152, guid: 14b1b963873158d4e898cb0b3e4d8ed4, type: 3}
+      propertyPath: maxDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506497455663066152, guid: 14b1b963873158d4e898cb0b3e4d8ed4, type: 3}
+      propertyPath: maxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4506497455663066154, guid: 14b1b963873158d4e898cb0b3e4d8ed4, type: 3}
       propertyPath: vineSize
       value: 0.1
@@ -2264,6 +2299,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14b1b963873158d4e898cb0b3e4d8ed4, type: 3}
+--- !u!114 &1911369978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4506497455663066154, guid: 14b1b963873158d4e898cb0b3e4d8ed4, type: 3}
+  m_PrefabInstance: {fileID: 1911369977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176709149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd86d4111923a20479ad6c14f2764f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1938059917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2754721865640129201, guid: fc04ae4f808aa254985f8d6b39bf1623, type: 3}
