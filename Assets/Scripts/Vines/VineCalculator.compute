@@ -1,0 +1,84 @@
+#pragma kernel CalculateVertex
+#pragma kernel CalculateIndex
+
+struct vertex
+{
+    float3 position;
+    float3 normal;
+    float4 tangent;
+    float2 uv;
+};
+
+RWStructuredBuffer<vertex> gpuVertices;
+RWStructuredBuffer<uint> gpuIndice;
+
+StructuredBuffer<float4x4> pathPoints;
+
+int roundSegments;
+int vineSegments;
+int bezierSegments;
+int totalVerts;
+int totalIndice;
+float vineSize;
+
+float3 getMatrixPos(float4x4 mat)
+{
+    return float3(mat[0].w, mat[1].w, mat[2].w);
+}
+
+[numthreads(512,1,1)]
+void CalculateVertex (uint3 id : SV_DispatchThreadID)
+{
+    if(id.x > totalVerts)
+    {
+        return;
+    }
+    
+    int currentVertex = id.x % roundSegments;
+    int currentSegment = id.x / roundSegments;
+
+    float t = (float)currentVertex / roundSegments;
+
+    float angle = 3.14159265f * t * 2.0f;
+    float x = cos(angle);
+    float y = sin(angle);
+
+    if(vineSegments - currentSegment < 5)
+    {
+        float newVineSize = ((float)vineSegments - currentSegment) / (float)5;
+        vineSize = newVineSize * vineSize;
+    }
+
+    float3 normal = float3(x, y, 0) * vineSize;
+    float3 position = mul(pathPoints[currentSegment], float4(normal, 1));
+    gpuVertices[id.x].position = position;
+    gpuVertices[id.x].normal = mul(pathPoints[currentSegment], float4(normal, 0));
+    //gpuVertices[id.x].normal = float3(newVineSize, currentSegment, vineSegments);
+    gpuVertices[id.x].uv = float2(1,0);
+}
+
+[numthreads(512,1,1)]
+void CalculateIndex (uint3 id : SV_DispatchThreadID)
+{
+    if(id.x > totalIndice / 6)
+    {
+        return;
+    }
+
+    const int currentSegment = id.x / roundSegments;
+    const int rootIndex = id.x;
+    const int A = rootIndex;
+    const int B = roundSegments * currentSegment + (id.x + 1) % roundSegments;
+    const int ANext = rootIndex + roundSegments;
+    const int BNext = roundSegments * currentSegment + (id.x + 1) % roundSegments + roundSegments;
+    
+    int localAddress = id.x * 6;
+    
+    gpuIndice[localAddress] = A;
+    gpuIndice[localAddress + 1] = B;
+    gpuIndice[localAddress + 2] = ANext;
+    
+    gpuIndice[localAddress + 3] = B;
+    gpuIndice[localAddress + 4] = BNext;
+    gpuIndice[localAddress + 5] = ANext;
+}
