@@ -53,8 +53,8 @@ void CalculateVertex (uint3 id : SV_DispatchThreadID)
     float3 position = mul(pathPoints[currentSegment], float4(normal, 1));
     gpuVertices[id.x].position = position;
     gpuVertices[id.x].normal = mul(pathPoints[currentSegment], float4(normal, 0));
-    //gpuVertices[id.x].normal = float3(newVineSize, currentSegment, vineSegments);
-    gpuVertices[id.x].uv = float2(1,0);
+    gpuVertices[id.x].normal = float3(currentVertex, t, roundSegments);
+    gpuVertices[id.x].uv = float2(currentSegment, id.x);
 }
 
 [numthreads(512,1,1)]
