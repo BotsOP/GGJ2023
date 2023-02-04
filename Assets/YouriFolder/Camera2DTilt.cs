@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Camera2DTilt : MonoBehaviour
 {
-    [SerializeField][Range(-1.0f, 1.0f)] private static float rootXPos;
+    [SerializeField][Range(-1.0f, 1.0f)] public static float rootXPos;
     [SerializeField] private Animator KusjeKriebel;
     [SerializeField] Vector3 turingPointPos;
     [SerializeField] Vector3 turingPointRot;
