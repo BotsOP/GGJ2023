@@ -370,7 +370,7 @@ public class PlayerMovement : MonoBehaviour
     void CalcVelocity()
     {
         distance = Vector2.Distance(previousPosition,currentPosition);
-        direction = new Vector3(currentPosition.y - previousPosition.y, (previousPosition.x - currentPosition.x)*upSpeedMultiplier, 0f);
+        direction = new Vector3(currentPosition.y - previousPosition.y, 0f, (previousPosition.x - currentPosition.x) * upSpeedMultiplier);
         if(distance <= maxDistance)
         {
             playerRigidbody.AddForce(direction * speedMultiplier * comboSpeedMultiplier);
