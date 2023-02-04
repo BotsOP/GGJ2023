@@ -61,7 +61,7 @@ public class VineManager : MonoBehaviour
 
         vines.subMeshCount = 1;
 
-        vines.bounds = new Bounds(Vector3.zero, new Vector3(500, 500, 500));
+        vines.bounds = new Bounds(transform.position, new Vector3(500, 500, 500));
 
         meshFilter.sharedMesh = vines;
         
@@ -141,6 +141,7 @@ public class VineManager : MonoBehaviour
 
     void Update()
     {
+        vines.bounds = new Bounds(transform.position, new Vector3(500, 500, 500));
         if (Time.time > 1)
         {
             if (cachedVineSegmets < vineSegments)
