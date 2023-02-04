@@ -15,10 +15,8 @@ public class Camera2DTilt : MonoBehaviour
         transform.rotation = Quaternion.Euler(turingPointRot * rootXPos);   
         if(rootXPos == 1) 
         {
-
             KusjeKriebel.SetBool("IsLinks", false);
             ActivateAnimatorAndFallAsleep();
-
         }
         else if(-rootXPos == 1) 
         {
