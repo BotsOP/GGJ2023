@@ -20,6 +20,16 @@ public class PlayerMovement : MonoBehaviour
     public float distance;
     public Vector3 direction;
 
+    public float previousComboTime;
+    public float currentComboTime;
+    public float timeBetweenCombo;
+    public int currentCombo;
+    public float[] comboReachTimes;
+    public float[] comboDecreaseTimes;
+    public float comboDecreaseTime;
+    public float comboSpeedMultiplier;
+    public float[] comboSpeedMultipliers;
+
     private void Start()
     {
         playerRigidbody = transform.GetComponent<Rigidbody>();
@@ -347,7 +357,15 @@ public class PlayerMovement : MonoBehaviour
             CalcTime();
             CalcVelocity();
         }
-        //===================================================Velocity
+        //===================================================Combo
+        if(currentCombo > 0)
+        {
+            comboDecreaseTime -= Time.deltaTime;
+            if(comboDecreaseTime <= 0)
+            {
+                DecreaseCombo();
+            }
+        }
     }
     void CalcVelocity()
     {
@@ -355,7 +373,7 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector3(currentPosition.y - previousPosition.y, (previousPosition.x - currentPosition.x)*upSpeedMultiplier, 0f);
         if(distance <= maxDistance)
         {
-            playerRigidbody.AddForce(direction * speedMultiplier);
+            playerRigidbody.AddForce(direction * speedMultiplier * comboSpeedMultiplier);
         }
     }
     void CalcTime()
@@ -367,6 +385,53 @@ public class PlayerMovement : MonoBehaviour
         {
             previousPosition = currentPosition;
             previousTime = currentTime;
+        }
+    }
+
+    void ApplyCombo()
+    {
+        previousComboTime = currentComboTime;
+        currentComboTime = Time.time;
+        timeBetweenCombo = currentComboTime - previousComboTime;
+        if (timeBetweenCombo <= comboReachTimes[currentCombo])
+        {
+            currentCombo++;
+            if(currentCombo > (comboReachTimes.Length - 1))
+            {
+                currentCombo = (comboReachTimes.Length - 1);
+            }
+            else
+            {
+                comboSpeedMultiplier = comboSpeedMultipliers[currentCombo];
+                EffectTrigger();
+            }
+        }
+        if (currentCombo > 0)
+        {
+            comboDecreaseTime = comboDecreaseTimes[currentCombo - 1];
+        }
+    }
+
+    void DecreaseCombo()
+    {
+        currentCombo--;
+        comboSpeedMultiplier = comboSpeedMultipliers[currentCombo];
+        if(currentCombo > 0)
+        {
+            comboDecreaseTime = comboDecreaseTimes[currentCombo - 1];
+        }
+    }
+
+    void EffectTrigger()
+    {
+        //put effects for getting a higher combo
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.tag == "Pickup")
+        {
+            ApplyCombo();
         }
     }
 }
