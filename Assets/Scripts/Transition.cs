@@ -8,27 +8,57 @@ public class Transition : MonoBehaviour
     public Vector2 rightScreen;
 
     public GameObject player;
-
+    public CinemachineCameraOffset cameraOffset;
+    public bool moveCam;
+    public float speed;
     private void Update()
     {
-        if(player.transform.position.x < leftScreen.x)
+        if (!moveCam)
         {
-            Camera2DTilt.rootXPos = remap(player.transform.position.x, leftScreen.x, leftScreen.y,0f,-1f);
-            if(player.transform.position.x < leftScreen.y)
+            if (player.transform.position.x < leftScreen.x)
             {
-                Camera2DTilt.rootXPos = -1;
+                Camera2DTilt.rootXPos = remap(player.transform.position.x, leftScreen.x, leftScreen.y, 0f, -1f);
+                cameraOffset.m_Offset.x = remap(player.transform.position.x, leftScreen.x, leftScreen.y, 0f, 6f);
+                if (player.transform.position.x < leftScreen.y)
+                {
+                    Camera2DTilt.rootXPos = -1;
+                    cameraOffset.m_Offset.x = 6;
+                    moveCam = true;
+                }
             }
-        }else if(player.transform.position.x > rightScreen.x)
-        {
-            Camera2DTilt.rootXPos = remap(player.transform.position.x, rightScreen.x, rightScreen.y, 0f, 1f);
-            if (player.transform.position.x > rightScreen.y)
+            else if (player.transform.position.x > rightScreen.x)
             {
-                Camera2DTilt.rootXPos = 1;
+                Camera2DTilt.rootXPos = remap(player.transform.position.x, rightScreen.x, rightScreen.y, 0f, 1f);
+                cameraOffset.m_Offset.x = remap(player.transform.position.x, rightScreen.x, rightScreen.y, 0f, -6f);
+                if (player.transform.position.x > rightScreen.y)
+                {
+                    Camera2DTilt.rootXPos = 1;
+                    cameraOffset.m_Offset.x = -6;
+                    moveCam = true;
+
+                }
+            }
+            else
+            {
+                Camera2DTilt.rootXPos = 0;
+                cameraOffset.m_Offset.x = 0;
             }
         }
-        else
+        
+        if (moveCam)
         {
-            Camera2DTilt.rootXPos = 0;
+            if (player.transform.position.x < 0f)
+            {
+                cameraOffset.m_Offset.x += Time.deltaTime * speed;
+            }
+            else
+            {
+                cameraOffset.m_Offset.x -= Time.deltaTime * speed;
+            }
+        }
+        if(cameraOffset.m_Offset.x >= 50 || cameraOffset.m_Offset.x <= -50)
+        {
+            this.enabled = false;
         }
     }
 
