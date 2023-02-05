@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAtVine : MonoBehaviour
+public class LookAtVineRotation : MonoBehaviour
 {
     public VineManager vineManager;
     public float smoothSpeed;
