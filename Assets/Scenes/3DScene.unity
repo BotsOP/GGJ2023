@@ -398,7 +398,6 @@ GameObject:
   m_Component:
   - component: {fileID: 398995934}
   - component: {fileID: 398995933}
-  - component: {fileID: 398995932}
   - component: {fileID: 398995931}
   m_Layer: 0
   m_Name: Camera
@@ -440,14 +439,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &398995932
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398995930}
-  m_Enabled: 1
 --- !u!20 &398995933
 Camera:
   m_ObjectHideFlags: 0
@@ -1050,7 +1041,6 @@ GameObject:
   m_Component:
   - component: {fileID: 702298749}
   - component: {fileID: 702298748}
-  - component: {fileID: 702298747}
   - component: {fileID: 702298751}
   - component: {fileID: 702298750}
   - component: {fileID: 702298752}
@@ -1063,14 +1053,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &702298747
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702298746}
-  m_Enabled: 1
 --- !u!20 &702298748
 Camera:
   m_ObjectHideFlags: 0
@@ -2995,6 +2977,9 @@ MonoBehaviour:
   - 2.2
   comboScores: 
   score: 0
+  moveClips: []
+  dashClips: []
+  chance: 0
 --- !u!1 &2132684363365991934
 GameObject:
   m_ObjectHideFlags: 0
