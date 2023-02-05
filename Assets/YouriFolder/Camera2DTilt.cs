@@ -8,6 +8,7 @@ public class Camera2DTilt : MonoBehaviour
     [SerializeField] private Animator KusjeKriebel;
     [SerializeField] Vector3 turingPointPos;
     [SerializeField] Vector3 turingPointRot;
+    public static bool soep;
 
     public void Update()
     {
@@ -29,5 +30,6 @@ public class Camera2DTilt : MonoBehaviour
     {
         KusjeKriebel.enabled = true;
         this.enabled = false;
+        soep= true;
     }
 }
