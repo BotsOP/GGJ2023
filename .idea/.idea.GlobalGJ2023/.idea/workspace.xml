@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9cb9b58-8866-4d04-9ebf-3c29a2ef5665" name="Changes" comment="added look at vine component for camera">
-      <change afterPath="$PROJECT_DIR$/Assets/LookAtVine.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalGJ2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalGJ2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LookAtVine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LookAtVine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LookAtVinePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LookAtVinePosition.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BotsOP.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BotsOP.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DiscoverEnvironment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DiscoverEnvironment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/sprites/Untitled_Artwork (3).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/sprites/Untitled_Artwork (3).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/sprites/Untitled_Artwork (4).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/sprites/Untitled_Artwork (4).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +28,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/LookAtVine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/UnityProjects/GlobalGJ2023/Assets/Scenes/BotsOP.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PauseMenuController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/UnityProjects/GlobalGJ2023/Assets/Scenes/BotsOP.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vines/VineCalculator.compute" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/UnityProjects/GlobalGJ2023/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86acb61e0d2b4b36bc20af11093be9a5157e00/2e/f6009205/ReflectionProbe.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -62,10 +66,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23084">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="23084" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -94,6 +98,7 @@
       <workItem from="1675457256092" duration="6129000" />
       <workItem from="1675463446428" duration="6741000" />
       <workItem from="1675509503082" duration="15611000" />
+      <workItem from="1675590269355" duration="2454000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1675457265346</created>
@@ -130,7 +135,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="BotsOP" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -148,7 +165,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs</url>
-          <line>125</line>
+          <line>128</line>
           <properties documentPath="C:\UnityProjects\GlobalGJ2023\Assets\Scripts\Vines\VineManager.cs" initialLine="123" containingFunctionPresentation="method 'CalculateVertexPositions'">
             <startOffsets>
               <option value="4479" />

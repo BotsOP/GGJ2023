@@ -20,7 +20,7 @@ public class LookAtVinePosition : MonoBehaviour
         Vector3 vineHeadPos = vineManager.transforms[^1].position;
         Quaternion lookRotation = Quaternion.LookRotation(vineHeadPos - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, smoothSpeed);
-        Debug.Log($"{DistanceFromSquare(transform.position)}");
+        //Debug.Log($"{DistanceFromSquare(transform.position)}");
     }
 
     public float DistanceFromSquare(Vector2 point)
