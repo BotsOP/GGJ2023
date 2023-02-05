@@ -67,7 +67,8 @@ public class VineManager : MonoBehaviour
 
         vines.subMeshCount = 1;
 
-        vines.bounds = new Bounds(Vector3.zero, new Vector3(500, 500, 500));
+
+        vines.bounds = new Bounds(transforms[^1].position, new Vector3(9999, 9999, 9999));
 
         meshFilter.sharedMesh = vines;
         
@@ -95,6 +96,8 @@ public class VineManager : MonoBehaviour
             new VertexAttributeDescriptor(VertexAttribute.Tangent, stream: 0, dimension: 4), 
             new VertexAttributeDescriptor(VertexAttribute.TexCoord0, stream: 0, dimension: 2)
         );
+
+        vines.RecalculateBounds();
         
         vines.indexFormat = IndexFormat.UInt32;
 		
@@ -147,6 +150,7 @@ public class VineManager : MonoBehaviour
 
     void Update()
     {
+        vines.RecalculateBounds();
         if (Time.time > 0.1f)
         {
             if (cachedVineSegmets < vineSegments)
