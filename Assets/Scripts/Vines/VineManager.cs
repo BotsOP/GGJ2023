@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -9,14 +10,17 @@ public class VineManager : MonoBehaviour
 {
     public MeshFilter meshFilter;
     public ComputeShader computeShader;
+    public GameObject vinePlaceHolder;
     public int roundSegments;
     public float vineSize;
+    public int amountVertsWhenAbandon = 1000;
     public List<Transform> transforms;
 
     private Mesh vines;
     private int kernelID;
     private int cachedVineSegmets;
     private int threadGroupSize;
+    private float previousTime;
 
     private GraphicsBuffer gpuVertices;
     private GraphicsBuffer gpuIndice;
@@ -143,7 +147,7 @@ public class VineManager : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > 1)
+        if (Time.time > 0.1f)
         {
             if (cachedVineSegmets < vineSegments)
             {
@@ -159,12 +163,39 @@ public class VineManager : MonoBehaviour
             CalculateIndices();
             cachedVineSegmets = vineSegments;
         }
-        
+
+        if (totalVerts > amountVertsWhenAbandon)
+        {
+            StartNewMesh();
+        }
     }
 
     private void StartNewMesh()
     {
-        
+        cachedVineSegmets = 0;
+        //previousTime = Time.time;
+        GameObject oldVineObject = Instantiate(vinePlaceHolder);
+        oldVineObject.transform.parent = null;
+        oldVineObject.transform.position = Vector3.zero;
+        oldVineObject.transform.rotation = Quaternion.identity;
+        oldVineObject.GetComponent<MeshFilter>().mesh = vines;
+        Transform lastVineObject = transforms[^1];
+        Transform lastVineObject1 = transforms[^2];
+        Transform lastVineObject2 = transforms[^3];
+        Transform lastVineObject3 = transforms[^4];
+        Transform lastVineObject4 = transforms[^5];
+        Transform lastVineObject5 = transforms[^6];
+        Transform lastVineObject6 = transforms[^7];
+        transforms.Clear();
+        transforms.Add(lastVineObject6);
+        transforms.Add(lastVineObject5);
+        transforms.Add(lastVineObject4);
+        transforms.Add(lastVineObject3);
+        transforms.Add(lastVineObject2);
+        transforms.Add(lastVineObject1);
+        transforms.Add(lastVineObject);
+        CreateMesh();
+        UpdateMesh();
     }
     
     private Matrix4x4[] CreateMatrixArray(Transform[] transforms)
