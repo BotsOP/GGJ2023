@@ -7,11 +7,13 @@ public class LookAtVine : MonoBehaviour
 {
     public VineManager vineManager;
     public float smoothSpeed;
+    [SerializeField] private Vector2 point1;
+    [SerializeField] private Vector2 point2;
+
 
     private void Update()
     {
         Vector3 vineHeadPos = vineManager.transforms[^1].position;
-        Quaternion lookRotation = Quaternion.LookRotation(vineHeadPos - transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, smoothSpeed);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(vineHeadPos.x, vineHeadPos.y, transform.position.z), smoothSpeed);   
     }
 }
