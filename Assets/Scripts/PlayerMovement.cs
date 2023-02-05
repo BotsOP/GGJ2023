@@ -422,9 +422,9 @@ public class PlayerMovement : MonoBehaviour
                 comboSpeedMultiplier = comboSpeedMultipliers[currentCombo];
                 EffectTrigger();
             }
-            int randomAudio = UnityEngine.Random.Range(0, dashClips.Length);
-            AudioSource.PlayClipAtPoint(dashClips[randomAudio], new Vector3(0, 0, 0));
         }
+        int randomAudio = UnityEngine.Random.Range(0, dashClips.Length);
+        AudioSource.PlayClipAtPoint(dashClips[randomAudio], new Vector3(0, 0, 0));
         if (currentCombo > 0)
         {
             comboDecreaseTime = comboDecreaseTimes[currentCombo - 1];
