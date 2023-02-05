@@ -65,7 +65,7 @@ public class DiscoverEnvironment : MonoBehaviour
         {
             previousTime = Time.time;
             orientedPoint = CalculateNextPoint(orientedPoint);
-            Debug.Log($"{orientedPoint.position} {lastPos} {secondLastPos} {thirdLastPos}");
+            //Debug.Log($"{orientedPoint.position} {lastPos} {secondLastPos} {thirdLastPos}");
             if (!(orientedPoint.position == lastPos || orientedPoint.position == secondLastPos))
             {
                 Transform tempTransform = new GameObject().transform;

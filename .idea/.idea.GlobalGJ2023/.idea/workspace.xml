@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9cb9b58-8866-4d04-9ebf-3c29a2ef5665" name="Changes" comment="added 3d vines controller">
+    <list default="true" id="c9cb9b58-8866-4d04-9ebf-3c29a2ef5665" name="Changes" comment="added look at vine component for camera">
+      <change afterPath="$PROJECT_DIR$/Assets/LookAtVine.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GlobalGJ2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlobalGJ2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LookAtVine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LookAtVine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BotsOP.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BotsOP.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DiscoverEnvironment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DiscoverEnvironment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vines/VineCalculator.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vines/VineCalculator.compute" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Shader Graphs_Grow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/Shader Graphs_Grow.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +24,9 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/LookAtVine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/UnityProjects/GlobalGJ2023/Assets/Scenes/BotsOP.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UnityProjects/GlobalGJ2023/Assets/Scenes/BotsOP.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vines/VineCalculator.compute" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vines/VineManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86acb61e0d2b4b36bc20af11093be9a5157e00/2e/f6009205/ReflectionProbe.cs" root0="SKIP_HIGHLIGHTING" />
@@ -100,7 +102,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675457265346</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="made a the vine stop when it gets close and faster when target is far away">
+      <created>1675546100053</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675546100053</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added look at vine component for camera">
+      <created>1675551094765</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675551094765</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,7 +139,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="made a the vine stop when it gets close and faster when target is far away" />
+    <MESSAGE value="added look at vine component for camera" />
+    <option name="LAST_COMMIT_MESSAGE" value="added look at vine component for camera" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
