@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
     public int[] comboScores;
     public int score;
+
+    public AudioClip[] moveClips;
+    public AudioClip[] dashClips;
+    public int chance;
     private void Start()
     {
         playerRigidbody = transform.GetComponent<Rigidbody>();
@@ -381,6 +385,12 @@ public class PlayerMovement : MonoBehaviour
         if(distance <= maxDistance)
         {
             playerRigidbody.AddForce(direction * speedMultiplier * comboSpeedMultiplier);
+            int randomChance = UnityEngine.Random.Range(0, chance);
+            if(randomChance == 0)
+            {
+                int randomAudio = UnityEngine.Random.Range(0, moveClips.Length);
+                AudioSource.PlayClipAtPoint(moveClips[randomAudio], new Vector3(0, 0, 0));
+            }
         }
     }
     void CalcTime()
@@ -413,6 +423,8 @@ public class PlayerMovement : MonoBehaviour
                 EffectTrigger();
             }
         }
+        int randomAudio = UnityEngine.Random.Range(0, dashClips.Length);
+        AudioSource.PlayClipAtPoint(dashClips[randomAudio], new Vector3(0, 0, 0));
         if (currentCombo > 0)
         {
             comboDecreaseTime = comboDecreaseTimes[currentCombo - 1];
