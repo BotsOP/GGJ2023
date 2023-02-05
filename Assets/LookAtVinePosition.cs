@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class LookAtVinePosition : MonoBehaviour
@@ -8,6 +9,7 @@ public class LookAtVinePosition : MonoBehaviour
     public VineManager vineManager;
     public float smoothSpeed;
     public Vector2 min, max;
+    public static bool TriggerFinal;
     float startZ;
 
     private void OnEnable()
@@ -23,6 +25,12 @@ public class LookAtVinePosition : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, new Vector3(vineHeadPos.x, vineHeadPos.y, transform.position.z), smoothSpeed);
         transform.position = new Vector3(transform.position.x, transform.position.y, startZ - DistanceFromSquare(transform.position) - 5);
         Debug.Log($"{DistanceFromSquare(transform.position)}");
+
+
+        if(Mathf.Abs(vineHeadPos.x) > 106.9f || Mathf.Abs(vineHeadPos.y) > 66) 
+        { 
+            TriggerFinal = true;
+        }
     }
 
     public float DistanceFromSquare(Vector2 point)
