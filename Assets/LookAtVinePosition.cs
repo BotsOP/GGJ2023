@@ -8,18 +8,20 @@ public class LookAtVinePosition : MonoBehaviour
     public VineManager vineManager;
     public float smoothSpeed;
     public Vector2 min, max;
+    float startZ;
 
     private void OnEnable()
     {
         min = new Vector2(Mathf.Min(min.x, max.x), Mathf.Min(min.y, max.y));
         max = new Vector2(Mathf.Max(min.x, max.x), Mathf.Max(min.y, max.y));
+        startZ = transform.position.z;
     }
 
     private void Update()
     {
         Vector3 vineHeadPos = vineManager.transforms[^1].position;
-        Quaternion lookRotation = Quaternion.LookRotation(vineHeadPos - transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, smoothSpeed);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(vineHeadPos.x, vineHeadPos.y, transform.position.z), smoothSpeed);
+        transform.position = new Vector3(transform.position.x, transform.position.y, startZ - DistanceFromSquare(transform.position) - 5);
         Debug.Log($"{DistanceFromSquare(transform.position)}");
     }
 
