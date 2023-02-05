@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class LookAtVinePosition : MonoBehaviour
@@ -9,23 +10,24 @@ public class LookAtVinePosition : MonoBehaviour
     public float smoothSpeed;
     public Vector2 min, max;
     public static bool TriggerFinal;
+    public float zOffset;
+    private float startZ;
 
     private void OnEnable()
     {
         min = new Vector2(Mathf.Min(min.x, max.x), Mathf.Min(min.y, max.y));
         max = new Vector2(Mathf.Max(min.x, max.x), Mathf.Max(min.y, max.y));
+        startZ = transform.position.z;
     }
 
     private void Update()
     {
         Vector3 vineHeadPos = vineManager.transforms[^1].position;
-        Quaternion lookRotation = Quaternion.LookRotation(vineHeadPos - transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, smoothSpeed);
-        //Debug.Log($"{DistanceFromSquare(transform.position)}");
-
-        if (!TriggerFinal && MathF.Abs(vineHeadPos.x) > 80 || !TriggerFinal && MathF.Abs(vineHeadPos.y) > 52) 
-        { 
-            TriggerFinal= true;
+        transform.position = Vector3.Lerp(transform.position, new Vector3(vineHeadPos.x, vineHeadPos.y, startZ - DistanceFromSquare(transform.position) - zOffset), 
+            smoothSpeed);
+        if (!TriggerFinal && MathF.Abs(vineHeadPos.x) > 80 || !TriggerFinal && MathF.Abs(vineHeadPos.y) > 52)
+        {
+            TriggerFinal = true;
         }
     }
 

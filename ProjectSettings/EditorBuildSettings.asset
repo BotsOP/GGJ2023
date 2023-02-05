@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MovieTime.unity
     guid: 49897e7d80643e84d8a524fe06627ab3
+  - enabled: 1
+    path: Assets/YouriFolder/Soms.unity
+    guid: 755389766b39e8842a39199bbe54e918
   m_configObjects: {}

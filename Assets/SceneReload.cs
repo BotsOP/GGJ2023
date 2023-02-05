@@ -8,7 +8,7 @@ public class SceneReload : MonoBehaviour
 
     public void ReloadTheScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 
 }

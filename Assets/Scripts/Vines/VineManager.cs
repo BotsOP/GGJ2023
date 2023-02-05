@@ -67,7 +67,7 @@ public class VineManager : MonoBehaviour
 
         vines.subMeshCount = 1;
 
-        vines.bounds = new Bounds(Vector3.zero, new Vector3(500, 500, 500));
+        vines.bounds = new Bounds(transforms[^1].position, new Vector3(50, 50, 50));
 
         meshFilter.sharedMesh = vines;
         
@@ -104,6 +104,8 @@ public class VineManager : MonoBehaviour
         pathPoints?.Dispose();
         pathPoints = null;
         pathPoints = new ComputeBuffer(transforms.Count, sizeof(float) * 16, ComputeBufferType.Structured);
+
+        vines.bounds = new Bounds(transforms[^1].position, new Vector3(50, 50, 50));
     }
 
     private void CalculateVertexPositions()
