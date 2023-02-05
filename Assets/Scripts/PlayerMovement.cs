@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float timeBetweenPresses;
 
     public Rigidbody playerRigidbody;
+    public TMP_Text sext;
 
     public float maxTime;
     public float maxDistance;
@@ -30,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     public float comboSpeedMultiplier;
     public float[] comboSpeedMultipliers;
 
+    public int[] comboScores;
+    public int score;
     private void Start()
     {
         playerRigidbody = transform.GetComponent<Rigidbody>();
@@ -366,6 +371,8 @@ public class PlayerMovement : MonoBehaviour
                 DecreaseCombo();
             }
         }
+
+        sext.text = score.ToString();
     }
     void CalcVelocity()
     {
@@ -410,6 +417,7 @@ public class PlayerMovement : MonoBehaviour
         {
             comboDecreaseTime = comboDecreaseTimes[currentCombo - 1];
         }
+        score += comboScores[currentCombo];
     }
 
     void DecreaseCombo()
@@ -432,6 +440,7 @@ public class PlayerMovement : MonoBehaviour
         if(collider.gameObject.tag == "Pickup")
         {
             ApplyCombo();
+            Destroy(collider.transform.gameObject);
         }
     }
 }
