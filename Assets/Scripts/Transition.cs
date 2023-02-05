@@ -58,6 +58,7 @@ public class Transition : MonoBehaviour
         }
         if(cameraOffset.m_Offset.x >= 50 || cameraOffset.m_Offset.x <= -50)
         {
+            player.SetActive(false);
             this.enabled = false;
         }
     }
