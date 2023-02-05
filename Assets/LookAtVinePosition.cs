@@ -8,6 +8,7 @@ public class LookAtVinePosition : MonoBehaviour
     public VineManager vineManager;
     public float smoothSpeed;
     public Vector2 min, max;
+    public static bool TriggerFinal;
 
     private void OnEnable()
     {
@@ -21,6 +22,11 @@ public class LookAtVinePosition : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(vineHeadPos - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, smoothSpeed);
         //Debug.Log($"{DistanceFromSquare(transform.position)}");
+
+        if (!TriggerFinal && MathF.Abs(vineHeadPos.x) > 80 || !TriggerFinal && MathF.Abs(vineHeadPos.y) > 52) 
+        { 
+            TriggerFinal= true;
+        }
     }
 
     public float DistanceFromSquare(Vector2 point)
