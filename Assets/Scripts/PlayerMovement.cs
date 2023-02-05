@@ -389,7 +389,7 @@ public class PlayerMovement : MonoBehaviour
             if(randomChance == 0)
             {
                 int randomAudio = UnityEngine.Random.Range(0, moveClips.Length);
-                AudioSource.PlayClipAtPoint(moveClips[randomAudio], new Vector3(0, 0, 0));
+                PlayClipAt(moveClips[randomAudio], new Vector3(0, 0, 0));
             }
         }
     }
@@ -424,7 +424,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         int randomAudio = UnityEngine.Random.Range(0, dashClips.Length);
-        AudioSource.PlayClipAtPoint(dashClips[randomAudio], new Vector3(0, 0, 0));
+        PlayClipAt(dashClips[randomAudio], new Vector3(0, 0, 0));
         if (currentCombo > 0)
         {
             comboDecreaseTime = comboDecreaseTimes[currentCombo - 1];
@@ -454,5 +454,18 @@ public class PlayerMovement : MonoBehaviour
             ApplyCombo();
             Destroy(collider.transform.gameObject);
         }
+    }
+
+    AudioSource PlayClipAt(AudioClip clip, Vector3 pos)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create the temp object
+        tempGO.transform.position = pos; // set its position
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
+        aSource.clip = clip; // define the clip
+                             // set other aSource properties here, if desired
+        aSource.spatialBlend = 0;
+        aSource.Play(); // start the sound
+        Destroy(tempGO, clip.length); // destroy object after clip duration
+        return aSource; // return the AudioSource reference
     }
 }
