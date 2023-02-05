@@ -11963,7 +11963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436626211}
   m_LocalRotation: {x: 0.70710576, y: 0, z: 0, w: 0.7071079}
-  m_LocalPosition: {x: 50.00056, y: 474.40012, z: -75.299995}
+  m_LocalPosition: {x: 50.05656, y: 474.40012, z: -75.299995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12428,7 +12428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Offset: {x: 50.00056, y: 0, z: 0}
+  m_Offset: {x: 50.05656, y: 0, z: 0}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
 --- !u!1 &1524903861
@@ -14573,6 +14573,50 @@ MonoBehaviour:
   - 2.2
   comboScores: 0a0000003200000078000000fa000000
   score: 0
+  moveClips:
+  - {fileID: 8300000, guid: c88dafc45d993e646bfc128a3893bb7e, type: 3}
+  - {fileID: 8300000, guid: a70dd8628177eaf4ebabae693f20038f, type: 3}
+  - {fileID: 8300000, guid: 09b66d5c2e12c6e4c94d1e4f159bee46, type: 3}
+  - {fileID: 8300000, guid: d7a59cf6239007c429b872990a06e60b, type: 3}
+  - {fileID: 8300000, guid: 67e8adb415325304f858d4b397a21e97, type: 3}
+  - {fileID: 8300000, guid: 702a4aabef04ce947b05be44ac688e66, type: 3}
+  - {fileID: 8300000, guid: 523c50743808865469320a2a8ea04bee, type: 3}
+  - {fileID: 8300000, guid: 72bbb8424f888dd4d85d58dde7b210b9, type: 3}
+  - {fileID: 8300000, guid: 9e79598d43b756045a07e366bafdd09f, type: 3}
+  - {fileID: 8300000, guid: c42f93833f53e854d9f4eea48ee5825b, type: 3}
+  - {fileID: 8300000, guid: 4cad999f7109a3648bc6157eaaaa4df1, type: 3}
+  - {fileID: 8300000, guid: 8531b1e443a829741af09ec5dd283263, type: 3}
+  - {fileID: 8300000, guid: d435f7fd547dcc44980d0f3196dd4a6f, type: 3}
+  - {fileID: 8300000, guid: 1d9a28fc6cff4db40a5624f32602a913, type: 3}
+  - {fileID: 8300000, guid: 0ef55ac1534d2fb4d8ca0afee634e5d7, type: 3}
+  - {fileID: 8300000, guid: c1a87f6d1ff8bc8499c6afe7b9af8e88, type: 3}
+  - {fileID: 8300000, guid: 022032a8242af3345b624e923f82d953, type: 3}
+  - {fileID: 8300000, guid: 57cff7b2a76866847b4ecfbfedcc1ee5, type: 3}
+  - {fileID: 8300000, guid: 7d1ae0ebb8293fe41b2f9c2f985fce6b, type: 3}
+  - {fileID: 8300000, guid: 2e8b025350fc2cb4e813fb568f392bdb, type: 3}
+  - {fileID: 8300000, guid: 4063691571c5c354cb4d59ab680ccd65, type: 3}
+  - {fileID: 8300000, guid: 2de83d54a18426940b1df518f2875c4b, type: 3}
+  - {fileID: 8300000, guid: d2cb89f953e485640986f24140acaf2e, type: 3}
+  - {fileID: 8300000, guid: 335bf54b92f19f549907f5cf9e4b3483, type: 3}
+  - {fileID: 8300000, guid: be03c2433c33dcc4197d58141f812b34, type: 3}
+  - {fileID: 8300000, guid: 183735de7e00f3349915f3e5b9e12175, type: 3}
+  - {fileID: 8300000, guid: 4114906c317e9304faab6338bf2132b6, type: 3}
+  - {fileID: 8300000, guid: f4b792d0d56df6544ae7d5d712e53555, type: 3}
+  - {fileID: 8300000, guid: dd30146a4e1fb864891ad36bf52de249, type: 3}
+  - {fileID: 8300000, guid: 906712ebdea90414e878a543695c59e8, type: 3}
+  - {fileID: 8300000, guid: ed4706fdf55f2204594bfff6915d0540, type: 3}
+  - {fileID: 8300000, guid: 35450bf052c0a3f40811f72156150bb7, type: 3}
+  - {fileID: 8300000, guid: bf393a59f67ccea47ac8b3d9b90e0714, type: 3}
+  - {fileID: 8300000, guid: 3ba32307ea986cb49af5a27f81acfe5b, type: 3}
+  dashClips:
+  - {fileID: 8300000, guid: 98390f231922cc84da019f1f00de3f92, type: 3}
+  - {fileID: 8300000, guid: 81fd9fd3f00326c48b914bce73e11c85, type: 3}
+  - {fileID: 8300000, guid: cedfc56a8b66c654a9b9fdeeaebbf5de, type: 3}
+  - {fileID: 8300000, guid: 11b0a1cc1ecef9848b55e76b84add917, type: 3}
+  - {fileID: 8300000, guid: 1b144f0e6668dc14f8cec73839626691, type: 3}
+  - {fileID: 8300000, guid: ef288e496d01c0d48b0221266d590f15, type: 3}
+  - {fileID: 8300000, guid: 6a1ff8977c380f443b33eda989435841, type: 3}
+  chance: 4
 --- !u!54 &1683800098
 Rigidbody:
   m_ObjectHideFlags: 0
