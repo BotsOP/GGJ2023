@@ -716,6 +716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 830527435}
   computeShader: {fileID: 7200000, guid: 58c6df96386724e4baffcfa4f98dd3f1, type: 3}
+  vinePlaceHolder: {fileID: 1375241836721058438, guid: 21cd9f545e8c64049af265084c097af6, type: 3}
   roundSegments: 16
   vineSize: 0.1
   transforms:
